@@ -11,8 +11,8 @@
 #  updated_at :datetime         not null
 #
 class MemberProject < ApplicationRecord
-  validates :member_id, uniqueness: { scope: :project_id }
-
   belongs_to :member
   belongs_to :project
+
+  validates :member_id, uniqueness: { scope: :project_id }
 end

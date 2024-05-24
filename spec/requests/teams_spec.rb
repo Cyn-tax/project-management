@@ -23,16 +23,25 @@ RSpec.describe Api::V1::TeamsController, type: :request do
   end
 
   describe 'GET #show' do
-    before { get "/api/v1/teams/#{team.id}", headers: { 'ACCEPT' => 'application/json' } }
+    context 'when request is valid' do
+      before { get "/api/v1/teams/#{team.id}", headers: { 'ACCEPT' => 'application/json' } }
 
-    it 'returns the team' do
-      expect(json_response).not_to be_empty
-      expect(json_response['team']['id']).to eq(team.id)
-      expect(json_response['team']['name']).to eq('Test Team')
+      it 'returns the team' do
+        expect(json_response).not_to be_empty
+        expect(json_response['team']['id']).to eq(team.id)
+        expect(json_response['team']['name']).to eq('Test Team')
+      end
+
+      it 'returns status code 200' do
+        expect(response).to have_http_status(:ok)
+      end
     end
+    context 'when request is in_valid' do
+      before { get '/api/v1/teams/test', headers: { 'ACCEPT' => 'application/json' } }
 
-    it 'returns status code 200' do
-      expect(response).to have_http_status(:ok)
+      it 'returns status code 404' do
+        expect(response).to have_http_status(:not_found)
+      end
     end
   end
 

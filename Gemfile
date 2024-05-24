@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem 'rubocop-rails', '~> 2.25'
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'simplecov', '~> 0.22.0'
 end
 
 group :development do
@@ -54,3 +55,5 @@ group :development do
 end
 
 gem 'jbuilder', '~> 2.12'
+
+gem 'rack-cors', '~> 2.0'

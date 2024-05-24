@@ -15,9 +15,10 @@
 #  team_id    :bigint
 #
 class Member < ApplicationRecord
+  has_many :member_projects, dependent: :nullify
+  has_many :projects, through: :member_projects
+  belongs_to :team
+
   validates :first_name, presence: true
   validates :last_name, presence: true
-  has_many :member_projects, dependent: :nullify
-  belongs_to :team
-  has_many :projects, through: :member_projects
 end

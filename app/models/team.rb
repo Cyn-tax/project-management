@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Team < ApplicationRecord
-  validates :name, presence: true
   has_many :members, dependent: :destroy
+
+  validates :name, presence: true
 end
