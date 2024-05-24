@@ -5,10 +5,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :teams
-      resources :projects
+      resources :teams do
+        resources :members, only: [:index], on: :member, module: :teams
+      end
+      resources :projects do
+        resources :members, only: [:index], on: :member, module: :projects
+      end
       resources :members
-      resources :member_projects, only: [:create]
+      resource :member_projects, only: [:create]
     end
   end
 end
