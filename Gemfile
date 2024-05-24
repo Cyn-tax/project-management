@@ -41,6 +41,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'annotate', '~> 3.2'
   gem 'debug', platforms: %i[mri windows]
+  gem 'pry', '~> 0.14.2'
   gem 'rspec-rails', '~> 6.1.0'
   gem 'rubocop-rails', '~> 2.25'
   gem 'shoulda-matchers', '~> 6.0'
@@ -50,3 +51,5 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+gem 'jbuilder', '~> 2.12'

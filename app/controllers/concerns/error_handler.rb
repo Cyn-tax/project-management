@@ -5,6 +5,7 @@ module ErrorHandler
 
   included do
     rescue_from UnprocessableEntity, with: :unprocessable_entity
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
     rescue_from ActionController::ParameterMissing, with: :bad_request
   end
