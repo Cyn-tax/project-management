@@ -13,6 +13,7 @@ module Api
 
       def create
         @team = Team.create!(team_params)
+        render 'create', status: :created
       end
 
       def update
