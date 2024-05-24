@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :teams
       resources :projects
       resources :members
+      resources :member_projects, only: [:create]
     end
   end
 end
